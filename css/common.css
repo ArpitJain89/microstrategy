@@ -1,5 +1,7 @@
 /* Show Filters horizontally */
-
+.EmbeddingPage{
+    display: none;
+}
 .headerContainer {
     display: flex;
     align-items: center;

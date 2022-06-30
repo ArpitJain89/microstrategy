@@ -1,81 +1,75 @@
 <html lang="en">
-
 <head>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript"
-        src="https://demo.microstrategy.com/MicroStrategyLibrary/javascript/embeddinglib.js"></script>
-    <link rel="stylesheet" href="./chosen.min.css">
-    <link rel="stylesheet" href="./common.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Login page Validation</title>
+    <link rel="stylesheet" href="css/chosen.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
-        <style>
-            .btn-link{
-                font-weight: bold;
-            }
-        </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .btn-link{
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="headerContainer">
-        <h1>Micro Strategy Demo</h1>
-        <div class="filterswitch-btn">
-            <button class="btn btn-primary filterswitchvertically">Vertical</button>
-            <button class="btn btn-primary filterswitchhorizontally">Horizontal</button>
+    <div class="container">
+        <div class="main">
+            <img src="data:image/png;base64,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" alt="">
+            <form id="form_id" method="post" name="myform">
+                <label>User Name :</label>
+                <input type="text" name="username" id="username" />
+                <label>Password :</label>
+                <input type="password" name="password" id="password" />
+                <input type="button" value="Login" id="submit" onclick="validate()" />
+            </form>
         </div>
     </div>
-    <div class="tab-btn">
-        <button class="basic-button btn-link subtab" onclick="dossier.navigateToPage(dossier.getChapterList()[0].getFirstPage())">First Page</button>
-        <button class="basic-button btn-link subtab" onclick="dossier.goToPrevPage();">Previous page</button>
-        <div class="button-holder"></div>
-        <button class="basic-button btn-link subtab" onclick="dossier.goToNextPage();">Next Page</button>
-        <button class="basic-button btn-link subtab" onclick="dossier.navigateToPage(dossier.getChapterList()[dossier.getChapterList().length - 1].getLastPage());">Last Page</button>
-    </div>
-    <div class="mainContainer">
-        <!-- <div id="filterContainer" class="basic-container"> -->
-
-        <!-- <div class="button-holder"></div> -->
-
-        <div id="filterContainer" class="filterContainer basic-container">
-
-            <!-- <div class="filterHeader">Filter Section</div> -->
-            <div class="filterSection">
-                <div class="filterListContainer example-container"></div>
+    <div class="EmbeddingPage">
+        <div class="headerContainer">
+            <h1>Micro Strategy Demo</h1>
+            <div class="filterswitch-btn">
+                <button class="btn btn-primary filterswitchvertically">Vertical</button>
+                <button class="btn btn-primary filterswitchhorizontally">Horizontal</button>
             </div>
-            <div class="filterControlSection">
-                <div class="filterControl">
-
-                    <!-- <input type="button" value="Apply" class="basic-button"
-                            onclick="applyFilter(attributeSelector)" /> -->
-
-                    <button type="button" class="btn btn-primary"
-                        onclick="applyFilter(attributeSelector)">Apply</button>
-
-                    <div class="filterlinks">
-                        <a href="#" class="filterControlLinks" id="attributeSelectorValuesSelectAllAndSubmit"
-                            onclick="selectAllAndSubmit()"><i class="fa-solid fa-check fa-2x"></i></a>
-                        <a href="#" class="filterControlLinks" id="attributeSelectorValuesDeselectAllAndSubmit"
-                            onclick="deselectAllAndSubmit()"><i class="fa fa-remove fa-2x clearall-btn"></i></a>
-                    </div>
-
+        </div>
+        <div class="tab-btn">
+            <button class="basic-button btn-link subtab" onclick="dossier.navigateToPage(dossier.getChapterList()[0].getFirstPage())">First Page</button>
+            <button class="basic-button btn-link subtab" onclick="dossier.goToPrevPage();">Previous page</button>
+            <div class="button-holder"></div>
+            <button class="basic-button btn-link subtab" onclick="dossier.goToNextPage();">Next Page</button>
+            <button class="basic-button btn-link subtab" onclick="dossier.navigateToPage(dossier.getChapterList()[dossier.getChapterList().length - 1].getLastPage());">Last Page</button>
+        </div>
+        <div class="mainContainer">
+            <div id="filterContainer" class="filterContainer basic-container">
+                <div class="filterSection">
+                    <div class="filterListContainer example-container"></div>
+                </div>
+                <div class="filterControlSection">
+                    <div class="filterControl">    
+                        <button type="button" class="btn btn-primary"
+                            onclick="applyFilter(attributeSelector)">Apply</button>
+                            <div class="filterlinks">
+                            <a href="#" class="filterControlLinks" id="attributeSelectorValuesSelectAllAndSubmit"
+                                onclick="selectAllAndSubmit()"><i class="fa-solid fa-check fa-2x"></i></a>
+                            <a href="#" class="filterControlLinks" id="attributeSelectorValuesDeselectAllAndSubmit"
+                                onclick="deselectAllAndSubmit()"><i class="fa fa-remove fa-2x clearall-btn"></i></a>
+                        </div>
+                        </div>
                 </div>
             </div>
-        </div>
-        <!-- </div> -->
-        <!-- <iframe src="" frameborder="0"></iframe> -->
-        <div id="embedding-dossier-container"></div>
-        
+            <!-- </div> -->
+            <!-- <iframe src="" frameborder="0"></iframe> -->
+            <div id="embedding-dossier-container"></div>           
+        </div> 
     </div>
-    <script src="./chosen.jquery.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="library/chosen.jquery.min.js"></script>
+    <script src="js/login.js"></script>
+    <script type="text/javascript" src="js/microstrategyLib.js"></script>
 </body>
 
 </html>
