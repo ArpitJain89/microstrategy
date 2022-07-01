@@ -4,13 +4,12 @@ import { ReactKeycloakProvider } from '@react-keycloak/web'
 import keycloak from './Keycloak'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css';
+import NewHomePage from './homePage/newHomePage';
 
 function App() {
   return (
     <div className="App">
-      <ReactKeycloakProvider authClient={keycloak}>
-        <Home />
-      </ReactKeycloakProvider>
+        <NewHomePage />
     </div>
   );
 }
