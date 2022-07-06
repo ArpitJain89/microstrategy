@@ -38,9 +38,9 @@ class NewHomePage extends Component {
 
 	componentDidMount() {
 		const keycloak = Keycloak({
-			url: "http://localhost:8180/auth/",
+			url: "https://nightly-auth.k8s.sf.comprehend.com/auth",
 			realm: "lsac",
-			clientId: "microstrategy"
+			clientId: "legion-client"
 		});
 		keycloak.init({ onLoad: 'login-required' }).then(authenticated => {
 			this.setState({ keycloak: keycloak, authenticated: authenticated })
